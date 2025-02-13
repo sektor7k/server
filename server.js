@@ -118,18 +118,19 @@ app.get('/api/rooms/:roomId/messages', async (req, res) => {
 io.on('connection', (socket) => {
     console.log(`✅ Kullanıcı bağlandı: ${socket.id}`);
 
+    // Kullanıcı odaya katıldığında
     socket.on('join_room', (roomId) => {
         socket.join(roomId);
         console.log(`✅ Kullanıcı ${socket.id} odaya katıldı: ${roomId}`);
     });
 
+    // 30 saniyede bir bağlantıyı canlı tut
+    const keepAliveInterval = setInterval(() => {
+        socket.emit("keep_alive", { message: "ping" });
+    }, 30000);
+
     socket.on('disconnect', () => {
         console.log(`❌ Kullanıcı ayrıldı: ${socket.id}`);
+        clearInterval(keepAliveInterval); // Keep-alive mesajını durdur
     });
-});
-
-// ✅ Render Port Ayarlarını Kullan
-const PORT = process.env.PORT || 5001;
-server.listen(PORT, () => {
-    console.log(`✅ Sunucu ${PORT} numaralı portta çalışıyor.`);
 });
