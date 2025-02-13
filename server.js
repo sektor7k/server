@@ -45,6 +45,10 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
+
 // API rotaları
 app.post('/api/rooms', async (req, res) => {
     try {
