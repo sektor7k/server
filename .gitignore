@@ -1,0 +1,51 @@
+# Node Modules
+node_modules/
+
+# Yarn / npm cache
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.npm/
+
+# Log dosyaları
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dotenv
+.env
+.env.* 
+
+# Çeşitli
+.DS_Store
+Thumbs.db
+*.local
+
+# Üretim (build) klasörleri
+dist/
+build/
+out/
+.next/
+.cache/
+
+# IntelliJ IDEA / VSCode / Diğer Editörler
+*.iml
+.idea/
+.vscode/
+.vscode-test/
+
+# MacOS özel dosyaları
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux özel dosyaları
+*~
+
+# Windows özel dosyaları
+Thumbs.db
+desktop.ini
