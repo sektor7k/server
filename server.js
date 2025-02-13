@@ -134,3 +134,9 @@ io.on('connection', (socket) => {
         clearInterval(keepAliveInterval); // Keep-alive mesajını durdur
     });
 });
+
+// ✅ Render Port Ayarlarını Kullan
+const PORT = process.env.PORT || 5001;
+server.listen(PORT, () => {
+    console.log(`✅ Sunucu ${PORT} numaralı portta çalışıyor.`);
+});
